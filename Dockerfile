@@ -1,11 +1,14 @@
 FROM gradle:9.3-jdk21 AS build
-WORKDIR /Gitops
+
+WORKDIR /app
 COPY . .
+
 RUN gradle clean bootJar -x test
 
 FROM eclipse-temurin:21-jre
-WORKDIR /GitOps
-COPY --from=build /GitOps/build/libs/*SNAPSHOT.jar GitOps.jar
+
+WORKDIR /app
+COPY --from=build /app/build/libs/*.jar app.jar
 
 EXPOSE 8080
-ENTRYPOINT [ "java", "-jar", "GitOps.jar" ]
+ENTRYPOINT ["java", "-jar", "app.jar"]
