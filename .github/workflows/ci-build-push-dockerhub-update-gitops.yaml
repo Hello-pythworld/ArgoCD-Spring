@@ -5,8 +5,8 @@ on:
     branches: ["master"]
 
 env:
-  IMAGE_NAME: docker.io/LeeYeongHun/demo
-  GITOPS_REPO: LeeYeongHun/ArgoCD
+  IMAGE_NAME: docker.io/leeyeonghun/demo
+  GITOPS_REPO: Hello-pythworld/ArgoCD
   GITOPS_BRANCH: master
   KUSTOMIZE_FILE: apps/demo/kustomization.yaml
 
